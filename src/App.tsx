@@ -411,7 +411,7 @@ const ProjectsPage: React.FC = () => {
       id: 2,
       title: "Knucklebuck",
       description:
-        "A reproduction of a dice mini-game from a video game I played once.",
+        "A reproduction of a dice mini-game from a video game called 'Cult of the Lamb'.",
       url: "https://knucklebuck.netlify.app",
       github: "https://github.com/demaiodev/knucklebuck_2",
     },
@@ -419,7 +419,7 @@ const ProjectsPage: React.FC = () => {
       id: 3,
       title: "Dorya",
       description:
-        "A tool I wrote with Next.js to practice Tekken fundamentals.",
+        "A tool I wrote with Next.js to practice Tekken fundamentals using the Gamepad WebAPI.",
       url: "https://dorya.netlify.app",
       github: "https://github.com/demaiodev/dorya",
     },
@@ -427,7 +427,7 @@ const ProjectsPage: React.FC = () => {
       id: 4,
       title: "Cookie Clicker Automation",
       description:
-        "A browser-based automation implementation to further automate the classic game 'Cookie Clicker'.",
+        "A console-based automation implementation to further automate the classic game 'Cookie Clicker'.",
       url: "https://orteil.dashnet.org/cookieclicker/",
       github: "https://github.com/demaiodev/cookie-clicker-class",
     },
@@ -435,7 +435,7 @@ const ProjectsPage: React.FC = () => {
       id: 5,
       title: "Hintify",
       description:
-        "Browser extension that grabs data from the hints page, for when you get stuck and don't want to flip between tabs.",
+        "Browser extension that grabs data from the NYT hints page, for when you get stuck and don't want to flip between tabs.",
       url: "https://www.nytimes.com/puzzles/spelling-bee",
       github: "https://github.com/demaiodev/nyt-spelling-bee-hints",
     },
