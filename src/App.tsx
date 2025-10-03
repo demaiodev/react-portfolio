@@ -17,7 +17,7 @@ import ThemeProvider from "./ThemeProvider";
 import { useTheme } from "./theme-store";
 import { hexToRgba, getContrastText } from "./utils/color";
 
-const App: React.FC = () => {
+const AnimationWrappedRoutes: React.FC = () => {
   const { currentTheme } = useTheme();
   const location = useLocation();
 
@@ -73,8 +73,8 @@ const App: React.FC = () => {
                 ),
               };
             })
-            .map((page) => {
-              return <Route path={page.path} element={page.component} />;
+            .map(({ path, component }) => {
+              return <Route path={path} element={component} />;
             })}
         </Routes>
       </AnimatePresence>
@@ -85,7 +85,7 @@ const App: React.FC = () => {
 const RootApp: React.FC = () => (
   <Router>
     <ThemeProvider>
-      <App />
+      <AnimationWrappedRoutes />
     </ThemeProvider>
   </Router>
 );
