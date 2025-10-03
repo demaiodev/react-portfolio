@@ -22,13 +22,12 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
         group relative rounded-xl p-[2px] 
         shadow-aura-hover 
         transition-all duration-300 ease-out
-        pointer
       "
         >
           <div
             className="
           absolute inset-0 z-0 rounded-xl
-          bg-gradient-to-r from-blue-500 via-indigo-600  to-green-600 
+          bg-gradient-to-r from-blue-400 via-indigo-500  to-green-400 
           opacity-0 
           transition-opacity duration-300 ease-out
           group-hover:opacity-100 

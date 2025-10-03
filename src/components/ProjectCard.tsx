@@ -26,16 +26,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </h3>
       <p className={`text-base mb-4`}>{description}</p>
       <div className="flex space-x-4">
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex items-center space-x-2 text-sm font-medium transition-colors`}
-          style={{ color: "var(--accent-500)" }}
-        >
-          <LinkIcon className="w-4 h-4" />
-          <span>Live Site</span>
-        </a>
+        {url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center space-x-2 text-sm font-medium transition-colors`}
+            style={{ color: "var(--accent-500)" }}
+          >
+            <LinkIcon className="w-4 h-4" />
+            <span>Live Site</span>
+          </a>
+        )}
+
         <a
           href={github}
           target="_blank"
