@@ -11,6 +11,7 @@ import ProjectCard from "./components/ProjectCard";
 import Navbar from "./components/Navbar";
 import LandingHero from "./components/LandingHero";
 import AboutSection from "./components/AboutSection";
+import Resume from "./components/Resume";
 import ThemeProvider from "./ThemeProvider";
 import { useTheme } from "./theme-store";
 import { hexToRgba, getContrastText } from "./utils/color";
@@ -46,6 +47,12 @@ const LandingPage: React.FC = () => (
 const AboutPage: React.FC = () => (
   <PageTransitionWrapper>
     <AboutSection />
+  </PageTransitionWrapper>
+);
+
+const ResumePage: React.FC = () => (
+  <PageTransitionWrapper>
+    <Resume />
   </PageTransitionWrapper>
 );
 
@@ -152,6 +159,7 @@ const App: React.FC = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/resume" element={<ResumePage />} />
         </Routes>
       </AnimatePresence>
     </div>

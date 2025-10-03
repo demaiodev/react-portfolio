@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Code, User, LayoutGrid } from "lucide-react";
+import { Code, User, LayoutGrid, ScrollText } from "lucide-react";
 import ThemeSelector from "./ThemeSelector";
 import { useTheme } from "../theme-store";
 
@@ -17,6 +17,7 @@ const Navbar: React.FC = () => {
     { to: "/", label: "Home", icon: Code },
     { to: "/about", label: "About", icon: User },
     { to: "/projects", label: "Projects", icon: LayoutGrid },
+    { to: "/resume", label: "Resume", icon: ScrollText },
   ];
 
   return (
