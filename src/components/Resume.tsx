@@ -34,13 +34,14 @@ const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
       <div>
         <h2 className="text-xl font-bold mt-4">
           <span style={{ color: "var(--accent-600)" }}>
-            Professional Software Developer{" "}
+            Professional Software Developer
           </span>
-          |{" "}
+          <span className="text-md font-light mx-1">|</span>
           <span style={{ color: "var(--accent-600)" }}>
-            DXC Technology - Tampa, FL{" "}
+            DXC Technology - Tampa, FL
           </span>
-          | <span style={{ color: "var(--accent-600)" }}>2020 – 2025</span>
+          <span className="text-md font-light mx-1">|</span>
+          <span style={{ color: "var(--accent-600)" }}>2020 – 2025</span>
         </h2>
         <ul>
           <li>
@@ -76,13 +77,14 @@ const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
       <div>
         <h2 className="text-xl font-bold mt-4">
           <span style={{ color: "var(--accent-600)" }}>
-            Full Stack Software Developer{" "}
+            Full Stack Software Developer
           </span>
-          |{" "}
+          <span className="text-md font-light mx-1">|</span>
           <span style={{ color: "var(--accent-600)" }}>
-            PropLogix - Sarasota, FL{" "}
+            PropLogix - Sarasota, FL
           </span>
-          | <span style={{ color: "var(--accent-600)" }}>2019 – 2020</span>
+          <span className="text-md font-light mx-1">|</span>
+          <span style={{ color: "var(--accent-600)" }}>2019 – 2020</span>
         </h2>
         <ul>
           <li>
@@ -116,11 +118,13 @@ const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
 
       <div>
         <h2 className="text-xl font-bold mt-4">
-          <span style={{ color: "var(--accent-600)" }}>Data Engineer</span> |{" "}
+          <span style={{ color: "var(--accent-600)" }}>Data Engineer</span>
+          <span className="text-md font-light mx-1">|</span>
           <span style={{ color: "var(--accent-600)" }}>
-            Mercedes Medical - Sarasota, FL{" "}
+            Mercedes Medical - Sarasota, FL
           </span>
-          | <span style={{ color: "var(--accent-600)" }}>2018 – 2019</span>
+          <span className="text-md font-light mx-1">|</span>
+          <span style={{ color: "var(--accent-600)" }}>2018 – 2019</span>
         </h2>
         <ul>
           <li>
@@ -150,14 +154,46 @@ const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
           <span style={{ color: "var(--accent-600)" }}>Skills</span>
         </h2>
         <ul>
-          <li>Languages: JavaScript, TypeScript, C#, Python, SQL</li>
           <li>
-            Frameworks: Vue.js, React.js, Next.js, Node.js, Angular, .NET,
-            Entity Framework, TailwindCSS
+            <span
+              style={{ color: "var(--accent-500)" }}
+              className="mr-1 underline"
+            >
+              Languages:
+            </span>
+            <span>JavaScript, TypeScript, C#, Python, SQL</span>
           </li>
-          <li>Databases: MSSQL, PostgreSQL, MySQL, Supabase</li>
           <li>
-            Tools: Git, Docker, Jenkins, Postman, Cypress, Puppeteer, Datadog
+            <span
+              style={{ color: "var(--accent-500)" }}
+              className="mr-1 underline"
+            >
+              Frameworks:
+            </span>
+            <span>
+              Vue.js, React.js, Next.js, Node.js, Angular, .NET, Entity
+              Framework, TailwindCSS
+            </span>
+          </li>
+          <li>
+            <span
+              style={{ color: "var(--accent-500)" }}
+              className="mr-1 underline"
+            >
+              Databases:
+            </span>
+            <span>MSSQL, PostgreSQL, MySQL, Supabase</span>
+          </li>
+          <li>
+            <span
+              style={{ color: "var(--accent-500)" }}
+              className="mr-1 underline"
+            >
+              Tools:
+            </span>
+            <span>
+              Git, Docker, Jenkins, Postman, Cypress, Puppeteer, Datadog
+            </span>
           </li>
         </ul>
       </div>
@@ -167,36 +203,38 @@ const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
         </h2>
         <ul>
           <li>
-            Career Essentials in Software Development{" "}
-            <span style={{ color: "var(--accent-600)" }}>
+            Career Essentials in Software Development
+            <span style={{ color: "var(--accent-500)" }} className="mx-1">
               (Microsoft and LinkedIn)
             </span>
           </li>
           <li>
-            Career Essentials in GitHub{" "}
-            <span style={{ color: "var(--accent-600)" }}>
+            Career Essentials in GitHub
+            <span style={{ color: "var(--accent-500)" }} className="mx-1">
               (GitHub and LinkedIn)
             </span>
           </li>
           <li>
-            Career Essentials in Generative AI{" "}
-            <span style={{ color: "var(--accent-600)" }}>
+            Career Essentials in Generative AI
+            <span style={{ color: "var(--accent-500)" }} className="mx-1">
               (Microsoft and LinkedIn)
             </span>
           </li>
           <li>
-            JavaScript Foundations Professional{" "}
-            <span style={{ color: "var(--accent-600)" }}>(Mozilla)</span>
+            JavaScript Foundations Professional
+            <span style={{ color: "var(--accent-500)" }} className="mx-1">
+              (Mozilla)
+            </span>
           </li>
           <li>
-            Microsoft Copilot for Productivity{" "}
-            <span style={{ color: "var(--accent-600)" }}>
+            Microsoft Copilot for Productivity
+            <span style={{ color: "var(--accent-500)" }} className="mx-1">
               (Microsoft and LinkedIn)
             </span>
           </li>
           <li>
-            Microsoft Security Essentials{" "}
-            <span style={{ color: "var(--accent-600)" }}>
+            Microsoft Security Essentials
+            <span style={{ color: "var(--accent-500)" }} className="mx-1">
               (Microsoft and LinkedIn)
             </span>
           </li>
