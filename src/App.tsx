@@ -56,7 +56,7 @@ const ProjectsPage: React.FC = () => {
       id: 1,
       title: "React Gadgets",
       description:
-        "A collection of components I wrote to practice developing React applications using Vite, Typescript and TailwindCSS.",
+        "Collection of components I wrote to practice developing React applications using Vite, Typescript and TailwindCSS.",
       url: "https://react-gadgets.netlify.app",
       github: "https://github.com/demaiodev/react-gadgets",
     },
@@ -64,7 +64,7 @@ const ProjectsPage: React.FC = () => {
       id: 2,
       title: "Knucklebuck",
       description:
-        "A reproduction of a dice mini-game from 'Cult of the Lamb', written in React with Typescript.",
+        "Reproduction of a dice mini-game from 'Cult of the Lamb', written in React with Typescript.",
       url: "https://knucklebuck.netlify.app",
       github: "https://github.com/demaiodev/knucklebuck_2",
     },
@@ -72,32 +72,32 @@ const ProjectsPage: React.FC = () => {
       id: 3,
       title: "Dorya",
       description:
-        "A tool I wrote with Next.js to practice Tekken fundamentals using the Gamepad WebAPI.",
+        "Tool I wrote with Next.js to practice Tekken's 'Electric Wind God Fist' using the Gamepad Web API.",
       url: "https://dorya.netlify.app",
       github: "https://github.com/demaiodev/dorya",
     },
     {
       id: 4,
-      title: "Cookie Clicker Automation",
+      title: "CookieClickerClass",
       description:
-        "A console-based vanilla JavaScript implementation to further automate the classic clicker game 'Cookie Clicker'.",
-      url: "https://orteil.dashnet.org/cookieclicker/",
+        "Console-based vanilla JavaScript implementation to further automate the classic clicker game 'Cookie Clicker'.",
+      url: "",
       github: "https://github.com/demaiodev/cookie-clicker-class",
     },
     {
       id: 5,
       title: "Hintify",
       description:
-        "Browser extension that grabs data from the NYT hints page, for when you get stuck and don't want to flip between tabs.",
-      url: "https://www.nytimes.com/puzzles/spelling-bee",
+        "Browser extension for the NYT Spelling Bee game that grabs the daily puzzle's hints and injects it into the game's document.",
+      url: "",
       github: "https://github.com/demaiodev/nyt-spelling-bee-hints",
     },
     {
       id: 6,
       title: "tinyWatch",
       description:
-        "A Node.js application that scrapes cryptocurrency prices and uses a mail service to send alerts for favorable trades.",
-      url: "https://app.tinyman.org/swap?asset_in=0&asset_out=31566704",
+        "Node.js application that scrapes cryptocurrency prices and uses a mail service to send alerts for favorable trades.",
+      url: "",
       github: "https://github.com/demaiodev/tinyWatch",
     },
   ];
