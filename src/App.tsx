@@ -90,7 +90,7 @@ const ProjectsPage: React.FC = () => {
       id: 4,
       title: "Cookie Clicker Automation",
       description:
-        "A console-based JavaScript implementation to further automate the classic game 'Cookie Clicker'.",
+        "A console-based vanilla JavaScript implementation to further automate the classic clicker game 'Cookie Clicker'.",
       url: "https://orteil.dashnet.org/cookieclicker/",
       github: "https://github.com/demaiodev/cookie-clicker-class",
     },

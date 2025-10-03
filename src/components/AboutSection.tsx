@@ -51,22 +51,26 @@ const AboutSection: React.FC = () => {
       <h2 className={`text-4xl font-bold mb-8 ${currentTheme.text}`}>
         About Me
       </h2>
-      <p className={`${currentTheme.text} mb-2`}>
-        I'm 34 and I live in Sarasota, Florida. I like it here, except the
-        weather during the summer. And the hurricanes, they suck somtimes. Once
-        fall and winter are here, though, its the place to be.
+      <p className={`${currentTheme.text} mb-4`}>
+        I'm 34 and I live in Sarasota, Florida. I've lived here for about 18
+        years now, moved down here from New Jersey when I was in High School. I
+        like it here, except the weather during the summer. And the hurricanes.
+        And the mosquitoes, and the fire ants. And the big spiders, can't forget
+        them. I am less worried about the alligators, they seem okay to me.
       </p>
-      <p className={`${currentTheme.text} mb-2`}>
-        When I'm not programming, I'm probably playing video games on Steam. I
-        enjoy playing and creating music - I like to pretend I can play the
-        guitar, and I can also play the piano. I use FL Studio to record and
-        produce songs.
+      <p className={`${currentTheme.text} mb-4`}>
+        When I'm not programming, I'm probably playing video games on Steam.
+        Lately it's Tekken and Deadlock, but there's always time for Age of
+        Empires II or World of Warcraft. I enjoy playing and creating music - I
+        like to pretend I can play the guitar, and I can also play the piano. I
+        use FL Studio to record and produce songs.
       </p>
-      <p className={`${currentTheme.text} mb-2`}>
-        I have 2 four-legged creatures in my house. I have a Persian cat named
-        Pancake (because her face is smushed) and an English Cream golden
-        retriever named Charlie. Of course I have included pictures of them,
-        because I like to share.
+      <p className={`${currentTheme.text} mb-4`}>
+        <strong>Most importantly</strong>, I have 2 four-legged creatures in my
+        house. I have a Persian cat named Pancake (because her face is{" "}
+        <small>smushed</small>) and an English Cream golden retriever named
+        Charlie. Of course I have included pictures of them, because I like to
+        share.
       </p>
 
       <div className="w-full mt-6">

@@ -16,17 +16,37 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
         I've been creating web applications and software using JavaScript,
         TypeScript and Node.js for 8 years.
       </p>
-      <Link
-        to="/projects"
-        className={`px-6 py-3 font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center space-x-2`}
-        style={{
-          backgroundColor: "var(--accent-600)",
-          color: "var(--accent-contrast-text)",
-          border: `1px solid var(--accent-500)`,
-        }}
-      >
-        <span>Recent Work</span>
-        <ArrowRight />
+      <Link to="/projects">
+        <div
+          className="
+        group relative rounded-xl p-[2px] 
+        shadow-aura-hover 
+        transition-all duration-300 ease-out
+        pointer
+      "
+        >
+          <div
+            className="
+          absolute inset-0 z-0 rounded-xl
+          bg-gradient-to-r from-blue-500 via-indigo-600  to-green-600 
+          opacity-0 
+          transition-opacity duration-300 ease-out
+          group-hover:opacity-100 
+          group-hover:scale-[1.03] /* Slight scale for visual pop */
+        "
+          ></div>
+          <button
+            className="
+          relative z-10 px-8 py-3 text-lg font-bold text-white rounded-[10px] 
+          bg-gray-800 
+          transition-colors duration-300 ease-out 
+          group-hover:bg-gray-700 flex items-center space-x-2 shadow-lg 
+        "
+          >
+            <span>Recent Work</span>
+            <ArrowRight />
+          </button>
+        </div>
       </Link>
     </div>
   );
