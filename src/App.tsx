@@ -32,10 +32,16 @@ const themes: Record<
   ThemeId,
   {
     name: string;
-    accent: string;
+    accent: string; // short name (for reference)
+    accent100: string;
+    accent500: string;
+    accent600: string;
+    accent700: string;
     bg: string;
     navBg: string;
-    text: string;
+    navBgColor?: string;
+    text: string; // tailwind class for text (kept for compatibility)
+    textColor: string; // hex color for inline styles
     navText: string;
     indicator: React.FC<React.ComponentProps<"svg">>;
   }
@@ -44,27 +50,45 @@ const themes: Record<
   ocean: {
     name: "Ocean",
     accent: "blue",
+    accent100: "#dbeafe",
+    accent500: "#3b82f6",
+    accent600: "#2563eb",
+    accent700: "#1d4ed8",
     bg: "bg-blue-100",
     navBg: "bg-white",
+    navBgColor: "#ffffff",
     text: "text-gray-900",
+    textColor: "#111827",
     navText: "text-gray-600",
     indicator: Droplet,
   },
   forest: {
     name: "Forest",
     accent: "emerald",
+    accent100: "#d1fae5",
+    accent500: "#10b981",
+    accent600: "#059669",
+    accent700: "#047857",
     bg: "bg-green-50",
     navBg: "bg-white",
+    navBgColor: "#ffffff",
     text: "text-gray-800",
+    textColor: "#1f2937",
     navText: "text-gray-600",
     indicator: Leaf,
   },
   sunset: {
     name: "Sunset",
     accent: "rose",
+    accent100: "#fff1f2",
+    accent500: "#fb7185",
+    accent600: "#e11d48",
+    accent700: "#9f1239",
     bg: "bg-yellow-50",
     navBg: "bg-white",
+    navBgColor: "#ffffff",
     text: "text-gray-900",
+    textColor: "#111827",
     navText: "text-gray-600",
     indicator: Sunset,
   },
@@ -72,18 +96,30 @@ const themes: Record<
   midnight: {
     name: "Midnight",
     accent: "indigo",
+    accent100: "#eef2ff",
+    accent500: "#6366f1",
+    accent600: "#4f46e5",
+    accent700: "#4338ca",
     bg: "bg-gray-900",
     navBg: "bg-gray-800",
+    navBgColor: "#1f2937",
     text: "text-gray-100",
+    textColor: "#f9fafb",
     navText: "text-gray-400",
     indicator: Moon,
   },
   aubergine: {
     name: "Aubergine",
     accent: "purple",
+    accent100: "#f3e8ff",
+    accent500: "#8b5cf6",
+    accent600: "#7c3aed",
+    accent700: "#6d28d9",
     bg: "bg-black",
     navBg: "bg-black",
+    navBgColor: "#000000",
     text: "text-gray-300",
+    textColor: "#d1d5db",
     navText: "text-gray-400",
     indicator: Sparkles,
   },
@@ -142,27 +178,36 @@ const ThemeSelector: React.FC = () => {
     currentTheme.navBg.includes("white") ||
     currentTheme.navBg.includes("gray-100");
 
-  // Button style ensures visibility against the light/dark navbar background
-  const buttonClass = isLightTheme
-    ? `bg-gray-200 hover:bg-gray-300 text-${currentTheme.accent}-600` // Light theme: Neutral background, accent icon
-    : `bg-${currentTheme.accent}-600 hover:bg-${currentTheme.accent}-700 text-white`; // Dark theme: Accent background, white icon
+  // Inline styles for the theme button to reliably use accent colors
+  const buttonStyle: React.CSSProperties = isLightTheme
+    ? { backgroundColor: undefined, color: "var(--accent-600)" }
+    : {
+        backgroundColor: "var(--accent-600)",
+        color: "var(--accent-contrast-text)",
+        boxShadow: `0 0 0 3px var(--accent-100-rgba)`,
+      };
 
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
         // Updated class for visibility
-        className={`p-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none ${buttonClass}`}
+        className={`p-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none`}
+        style={buttonStyle}
         aria-label="Select color theme"
       >
         <Palette className="w-5 h-5" />
       </button>
       {isOpen && (
-        // Theme selector popup uses fixed light/dark mode styles for readability
-        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden z-20 border border-gray-200 dark:border-gray-700">
-          <div className="p-3 text-sm font-semibold text-gray-700 dark:text-gray-200 border-b dark:border-gray-700">
-            Select Theme
-          </div>
+        // Theme selector popup uses the theme's navBg / text color so it matches selected theme
+        <div
+          className={`absolute right-0 mt-2 w-48 rounded-lg shadow-xl overflow-hidden z-20 border transition-colors`}
+          style={{
+            backgroundColor: "var(--nav-bg)",
+            color: "var(--text-color)",
+          }}
+        >
+          <div className="p-3 text-sm font-semibold border-b">Select Theme</div>
           {Object.keys(themes).map((key) => {
             const id = key as ThemeId;
             const theme = themes[id];
@@ -175,20 +220,26 @@ const ThemeSelector: React.FC = () => {
                   setThemeId(id);
                   setIsOpen(false);
                 }}
-                className={`w-full text-left px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center justify-between`}
+                className={`w-full text-left px-4 py-2 transition-colors flex items-center justify-between hover:brightness-95`}
+                style={{ color: "var(--text-color)" }}
               >
                 <div className="flex items-center space-x-2">
                   <IndicatorIcon
-                    className={`w-4 h-4 text-${theme.accent}-600`}
+                    className="w-4 h-4"
+                    style={{ color: theme.accent600 || theme.accent500 }}
                   />
                   <span>{theme.name}</span>
                 </div>
                 <div
-                  className={`w-4 h-4 rounded-full border-2 ${theme.bg} ${
-                    themeId === id
-                      ? `border-${theme.accent}-500 ring-2 ring-${theme.accent}-500`
-                      : "border-gray-300"
-                  }`}
+                  className={`w-4 h-4 rounded-full border-2`}
+                  style={{
+                    backgroundColor: theme.accent100,
+                    borderColor: themeId === id ? theme.accent500 : "#d1d5db",
+                    boxShadow:
+                      themeId === id
+                        ? `0 0 0 3px ${theme.accent100}80`
+                        : undefined,
+                  }}
                 ></div>
               </button>
             );
@@ -211,33 +262,40 @@ const Navbar: React.FC = () => {
   return (
     // Navbar now uses the dynamic navBg and navText for its base colors
     <nav
-      className={`sticky top-0 z-50 p-4 shadow-md ${currentTheme.navBg} border-b border-gray-200 transition-colors duration-300`}
+      className={`sticky top-0 p-4 shadow-md transition-colors duration-300`}
+      style={{ backgroundColor: "var(--nav-bg)", zIndex: 1000 }}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <Link
           to="/"
-          className={`text-xl font-bold text-${currentTheme.accent}-600`}
+          className="text-xl font-bold"
+          style={{ color: "var(--accent-600)" }}
         >
           demaiodev
         </Link>
         <div className="flex space-x-4 items-center">
-          {navItems.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={`flex items-center space-x-1 p-2 rounded-lg transition-all duration-200 ${
-                currentTheme.navText
-              } 
-                ${
-                  location.pathname === item.to
-                    ? `font-semibold text-${currentTheme.accent}-600 bg-${currentTheme.accent}-100` // Active link accent color
-                    : `hover:text-${currentTheme.accent}-500 hover:bg-gray-100` // Hover state uses theme accent
-                }`}
-            >
-              <item.icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{item.label}</span>
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.to;
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`flex items-center space-x-1 p-2 rounded-lg transition-all duration-200 ${currentTheme.navText}`}
+                style={
+                  isActive
+                    ? {
+                        fontWeight: 600,
+                        color: "var(--accent-600)",
+                        backgroundColor: "var(--accent-100)",
+                      }
+                    : undefined
+                }
+              >
+                <item.icon className="w-4 h-4" />
+                <span className="hidden sm:inline">{item.label}</span>
+              </Link>
+            );
+          })}
           <ThemeSelector />
         </div>
       </div>
@@ -268,6 +326,28 @@ const PageTransitionWrapper: React.FC<{ children: React.ReactNode }> = ({
   </motion.div>
 );
 
+// Utility: convert #rrggbb to rgba with alpha
+function hexToRgba(hex: string, alpha = 1) {
+  const h = hex.replace("#", "");
+  const bigint = parseInt(h, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// Utility: pick black or white depending on which contrasts better with the background
+function getContrastText(hex: string) {
+  const h = hex.replace("#", "");
+  const bigint = parseInt(h, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  // Perceived luminance
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  return luminance > 0.6 ? "#111827" : "#ffffff";
+}
+
 // --- 4. INDIVIDUAL PAGES ---
 
 // Landing Page (Homepage)
@@ -280,23 +360,28 @@ const LandingPage: React.FC = () => {
     <PageTransitionWrapper>
       <div className="flex flex-col items-center justify-center h-full text-center py-20">
         <h1
-          className={`text-6xl font-extrabold ${currentTheme.text} mb-4 transition-colors`}
+          className="text-6xl font-extrabold mb-4 transition-colors"
+          style={{ color: currentTheme.textColor }}
         >
-          Hi, I'm{" "}
-          <span className={`text-${currentTheme.accent}-600`}>Chris.</span>
+          Hi, I'm <span style={{ color: "var(--accent-600)" }}>Chris.</span>
         </h1>
         <p className={`text-2xl ${currentTheme.text} mb-8`}>
           Full Stack Web Developer
         </p>
         <p className={`text-md ${currentTheme.text} mb-8`}>
-          I have about 8 Years of experience creating web applications using
-          JavaScript and Node.js.
+          I've been creating web applications and software using JavaScript,
+          TypeScript and Node.js for 8 years.
         </p>
         <Link
           to="/projects"
-          className={`px-6 py-3 bg-${currentTheme.accent}-600 text-${currentTheme.accent} border border-${currentTheme.accent} font-semibold rounded-full shadow-lg hover:bg-${currentTheme.accent}-700 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2`}
+          className={`px-6 py-3 font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center space-x-2`}
+          style={{
+            backgroundColor: "var(--accent-600)",
+            color: "var(--accent-contrast-text)",
+            border: `1px solid var(--accent-500)`,
+          }}
         >
-          <span>View My Work</span>
+          <span>Recent Work</span>
           <ArrowRight />
         </Link>
       </div>
@@ -382,10 +467,13 @@ const AboutPage: React.FC = () => {
               key={index}
               onClick={() => setCurrentImage(index)}
               className={`w-3 h-3 rounded-full transition-all ${
-                index === currentImage
-                  ? `bg-${currentTheme.accent}-500 w-5`
-                  : "bg-gray-400 bg-opacity-70"
+                index === currentImage ? "w-5" : "bg-gray-400 bg-opacity-70"
               }`}
+              style={
+                index === currentImage
+                  ? { backgroundColor: "var(--accent-500)" }
+                  : undefined
+              }
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -411,7 +499,7 @@ const ProjectsPage: React.FC = () => {
       id: 2,
       title: "Knucklebuck",
       description:
-        "A reproduction of a dice mini-game from a video game called 'Cult of the Lamb'.",
+        "A reproduction of a dice mini-game from 'Cult of the Lamb', written in React with Typescript.",
       url: "https://knucklebuck.netlify.app",
       github: "https://github.com/demaiodev/knucklebuck_2",
     },
@@ -427,7 +515,7 @@ const ProjectsPage: React.FC = () => {
       id: 4,
       title: "Cookie Clicker Automation",
       description:
-        "A console-based automation implementation to further automate the classic game 'Cookie Clicker'.",
+        "A console-based JavaScript implementation to further automate the classic game 'Cookie Clicker'.",
       url: "https://orteil.dashnet.org/cookieclicker/",
       github: "https://github.com/demaiodev/cookie-clicker-class",
     },
@@ -460,10 +548,11 @@ const ProjectsPage: React.FC = () => {
   }) => (
     // Project card background is made slightly darker/lighter than the body for contrast
     <div
-      className={`p-6 border rounded-xl shadow-lg ${currentTheme.navBg} transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
+      className={`p-6 border rounded-xl shadow-lg ${currentTheme.navBg} transition-all duration-300 hover:shadow-2xl`}
     >
       <h3
-        className={`text-2xl font-semibold mb-2 text-${currentTheme.accent}-600`}
+        className="text-2xl font-semibold mb-2"
+        style={{ color: "var(--accent-600)" }}
       >
         {title}
       </h3>
@@ -473,7 +562,8 @@ const ProjectsPage: React.FC = () => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center space-x-2 text-sm font-medium text-${currentTheme.accent}-500 hover:text-${currentTheme.accent}-700 transition-colors`}
+          className={`flex items-center space-x-2 text-sm font-medium transition-colors`}
+          style={{ color: "var(--accent-500)" }}
         >
           <LinkIcon className="w-4 h-4" />
           <span>Live Site</span>
@@ -482,7 +572,8 @@ const ProjectsPage: React.FC = () => {
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center space-x-2 text-sm font-medium ${currentTheme.navText} hover:text-gray-900 transition-colors`}
+          className={`flex items-center space-x-2 text-sm font-medium transition-colors`}
+          style={{ color: "var(--accent-500)" }}
         >
           <Github className="w-4 h-4" />
           <span>GitHub</span>
@@ -510,11 +601,29 @@ const ProjectsPage: React.FC = () => {
 const App: React.FC = () => {
   const { currentTheme } = useTheme();
   const location = useLocation();
+  // Prepare CSS variables for theme colors and adaptive contrast
+  const accent500 = currentTheme.accent500;
+  const accent600 = currentTheme.accent600;
+  const accent100 = currentTheme.accent100;
+  const contrastText = getContrastText(accent600);
+
+  const rootStyle = {
+    // background and text still use Tailwind classes for base layout, but variables drive accent colors
+    "--accent-100": accent100,
+    "--accent-500": accent500,
+    "--accent-600": accent600,
+    "--accent-700": currentTheme.accent700,
+    "--accent-100-rgba": hexToRgba(accent100, 0.18),
+    "--accent-contrast-text": contrastText,
+    "--text-color": currentTheme.textColor,
+    "--nav-bg": currentTheme.navBgColor || undefined,
+  } as React.CSSProperties;
 
   return (
-    // Apply the theme's base background and text color to the entire application wrapper
+    // Apply the theme's base background and text color to the entire application wrapper and set CSS variables
     <div
       className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} transition-colors duration-300`}
+      style={rootStyle}
     >
       <Navbar />
       <AnimatePresence mode="wait">
