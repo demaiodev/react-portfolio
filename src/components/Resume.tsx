@@ -4,7 +4,7 @@ import { FileDown } from "lucide-react";
 const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "public/2025Resume.pdf";
+    link.href = "public/2025resume.pdf";
     link.setAttribute("download", "ChrisDemaio2025Resume.pdf"); // Set desired filename
     document.body.appendChild(link);
     link.click();
