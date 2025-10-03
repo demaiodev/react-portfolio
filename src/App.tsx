@@ -6,125 +6,16 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import ProjectCard from "./components/ProjectCard";
+import { AnimatePresence } from "framer-motion";
+import PageTransitionWrapper from "./components/PageTransitionWrapper";
 import Navbar from "./components/Navbar";
 import LandingHero from "./components/LandingHero";
 import AboutSection from "./components/AboutSection";
 import Resume from "./components/Resume";
+import Projects from "./components/Projects";
 import ThemeProvider from "./ThemeProvider";
 import { useTheme } from "./theme-store";
 import { hexToRgba, getContrastText } from "./utils/color";
-
-const PageTransitionWrapper: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const pageVariants = {
-    initial: { opacity: 0, x: 50 },
-    in: { opacity: 1, x: 0 },
-    out: { opacity: 0, x: 50 },
-  };
-  return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={{ type: "tween", duration: 0.4 }}
-      className="min-h-[calc(100vh-64px)] p-8 max-w-6xl mx-auto"
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-const LandingPage: React.FC = () => (
-  <PageTransitionWrapper>
-    <LandingHero textColor={"var(--text-color)"} />
-  </PageTransitionWrapper>
-);
-
-const AboutPage: React.FC = () => (
-  <PageTransitionWrapper>
-    <AboutSection />
-  </PageTransitionWrapper>
-);
-
-const ResumePage: React.FC = () => (
-  <PageTransitionWrapper>
-    <Resume />
-  </PageTransitionWrapper>
-);
-
-const ProjectsPage: React.FC = () => {
-  const { currentTheme } = useTheme();
-
-  const projects = [
-    {
-      id: 1,
-      title: "React Gadgets",
-      description:
-        "Collection of components I wrote to practice developing React applications using Vite, Typescript and TailwindCSS.",
-      url: "https://react-gadgets.netlify.app",
-      github: "https://github.com/demaiodev/react-gadgets",
-    },
-    {
-      id: 2,
-      title: "Knucklebuck",
-      description:
-        "Reproduction of a dice mini-game from 'Cult of the Lamb', written in React with Typescript.",
-      url: "https://knucklebuck.netlify.app",
-      github: "https://github.com/demaiodev/knucklebuck_2",
-    },
-    {
-      id: 3,
-      title: "Dorya",
-      description:
-        "Tool I wrote with Next.js to practice Tekken's 'Electric Wind God Fist' using the Gamepad Web API.",
-      url: "https://dorya.netlify.app",
-      github: "https://github.com/demaiodev/dorya",
-    },
-    {
-      id: 4,
-      title: "CookieClickerClass",
-      description:
-        "Console-based vanilla JavaScript implementation to further automate the classic clicker game 'Cookie Clicker'.",
-      url: "",
-      github: "https://github.com/demaiodev/cookie-clicker-class",
-    },
-    {
-      id: 5,
-      title: "Hintify",
-      description:
-        "Browser extension for the NYT Spelling Bee game that grabs the daily puzzle's hints and injects it into the game's document.",
-      url: "",
-      github: "https://github.com/demaiodev/nyt-spelling-bee-hints",
-    },
-    {
-      id: 6,
-      title: "tinyWatch",
-      description:
-        "Node.js application that scrapes cryptocurrency prices and uses a mail service to send alerts for favorable trades.",
-      url: "",
-      github: "https://github.com/demaiodev/tinyWatch",
-    },
-  ];
-
-  if (!currentTheme) return null;
-
-  return (
-    <PageTransitionWrapper>
-      <h2 className={`text-4xl font-bold mb-8 ${currentTheme.text}`}>
-        Personal Projects
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} {...project} />
-        ))}
-      </div>
-    </PageTransitionWrapper>
-  );
-};
 
 const App: React.FC = () => {
   const { currentTheme } = useTheme();
@@ -156,10 +47,35 @@ const App: React.FC = () => {
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/resume" element={<ResumePage />} />
+          {[
+            {
+              path: "/",
+              component: <LandingHero textColor={"var(--text-color)"} />,
+            },
+            {
+              path: "/about",
+              component: <AboutSection />,
+            },
+            {
+              path: "/projects",
+              component: <Projects textColor={"var(--text-color)"} />,
+            },
+            {
+              path: "/resume",
+              component: <Resume />,
+            },
+          ]
+            .map(({ path, component }) => {
+              return {
+                path,
+                component: (
+                  <PageTransitionWrapper>{component}</PageTransitionWrapper>
+                ),
+              };
+            })
+            .map((page) => {
+              return <Route path={page.path} element={page.component} />;
+            })}
         </Routes>
       </AnimatePresence>
     </div>
