@@ -15,10 +15,6 @@ import ThemeProvider from "./ThemeProvider";
 import { useTheme } from "./theme-store";
 import { hexToRgba, getContrastText } from "./utils/color";
 
-// --- 2. COMPONENTS ---
-
-// --- 3. PAGE FRAMEWORK (with Animation) ---
-
 const pageVariants = {
   initial: { opacity: 0, x: 50 },
   in: { opacity: 1, x: 0 },
@@ -40,24 +36,18 @@ const PageTransitionWrapper: React.FC<{ children: React.ReactNode }> = ({
   </motion.div>
 );
 
-// (theme utilities are provided by src/theme.tsx)
-
-// --- 4. INDIVIDUAL PAGES ---
-// Landing Page wrapper
 const LandingPage: React.FC = () => (
   <PageTransitionWrapper>
     <LandingHero textColor={"var(--text-color)"} />
   </PageTransitionWrapper>
 );
 
-// About Page wrapper
 const AboutPage: React.FC = () => (
   <PageTransitionWrapper>
     <AboutSection />
   </PageTransitionWrapper>
 );
 
-// Projects Page
 const ProjectsPage: React.FC = () => {
   const { currentTheme } = useTheme();
 
@@ -168,8 +158,6 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-// --- 6. WRAPPER FOR CONTEXT ---
 
 const RootApp: React.FC = () => (
   <Router>

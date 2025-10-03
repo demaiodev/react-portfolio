@@ -1,16 +1,7 @@
 @import "tailwindcss";
 
-/* src/index.css or src/globals.css */
-
 .shadow-aura-hover {
   /* Define the default shadow */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.3s ease-out;
-}
-
-.group:hover .shadow-aura-hover {
-  /* The eye-popping multi-color glow on hover */
-  box-shadow: 0 0 10px rgba(255, 100, 200, 0.7),
-    /* Pink */ 0 0 20px rgba(100, 200, 255, 0.5),
-    /* Blue */ 0 0 40px rgba(255, 200, 100, 0.3); /* Orange */
 }
