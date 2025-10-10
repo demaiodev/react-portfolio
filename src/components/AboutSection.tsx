@@ -3,13 +3,11 @@ import Carousel from "./Carousel";
 import { useTheme } from "../theme-store";
 
 import img1773 from "../../pics/IMG_1773.webp";
-import img2532 from "../../pics/IMG_2532.webp";
 import img3476 from "../../pics/IMG_3476.webp";
 import img4949 from "../../pics/IMG_4949.webp";
 import img5082 from "../../pics/IMG_5082.webp";
 import img5264 from "../../pics/IMG_5264.webp";
 import img5706 from "../../pics/IMG_5706.webp";
-import img5707 from "../../pics/IMG_5707.webp";
 import img5947 from "../../pics/IMG_5947.webp";
 import img6613 from "../../pics/IMG_6613.webp";
 import img8385 from "../../pics/IMG_8385.webp";
@@ -20,6 +18,12 @@ import img1936 from "../../pics/IMG_1936.webp";
 import img2095 from "../../pics/IMG_2095.webp";
 import img6343 from "../../pics/IMG_6343.webp";
 import img9999 from "../../pics/IMG_9999.webp";
+import img1191 from "../../pics/IMG_1191.webp";
+import img1248 from "../../pics/IMG_1248.webp";
+import img1818 from "../../pics/IMG_1818.webp";
+import img2199 from "../../pics/IMG_2199.webp";
+import img2645 from "../../pics/IMG_2645.webp";
+import img6303 from "../../pics/IMG_6303.webp";
 
 const AboutSection: React.FC = () => {
   const { currentTheme } = useTheme();
@@ -27,13 +31,11 @@ const AboutSection: React.FC = () => {
 
   const images = [
     img1773,
-    img2532,
     img3476,
     img4949,
     img5082,
     img5264,
     img5706,
-    img5707,
     img5947,
     img6613,
     img8385,
@@ -44,6 +46,12 @@ const AboutSection: React.FC = () => {
     img2095,
     img6343,
     img9999,
+    img1191,
+    img1248,
+    img1818,
+    img2199,
+    img2645,
+    img6303,
   ];
 
   return (
