@@ -52,7 +52,7 @@ const AboutSection: React.FC = () => {
     img2199,
     img2645,
     img6303,
-  ];
+  ].sort();
 
   return (
     <>
@@ -60,30 +60,30 @@ const AboutSection: React.FC = () => {
         About Me
       </h2>
       <p className={`${currentTheme.text} mb-4`}>
-        I'm 34 and I live in Sarasota, Florida. I've lived here for about 18
-        years now, moved down here from New Jersey when I was in High School. I
-        like it here, except the weather during the summer. And the hurricanes.
-        And the mosquitoes, and the fire ants. And the big spiders, can't forget
-        them. I am less worried about the alligators, they seem okay to me.
-      </p>
-      <p className={`${currentTheme.text} mb-4`}>
-        When I'm not programming, I'm probably playing video games on Steam.
-        Lately it's Tekken and Deadlock, but there's always time for Age of
-        Empires II or World of Warcraft. I enjoy playing and creating music - I
-        like to pretend I can play the guitar, and I can also play the piano. I
-        use FL Studio to record and produce songs.
+        I'm 34 and I live in Sarasota, Florida. I have been writing JavaScript
+        for close to ten years now, and eight of them were in a professional
+        capacity. When I'm not programming, I'm probably playing video games on
+        Steam. I enjoy playing and creating music - I like to pretend I can play
+        the guitar, and I can also play the piano. I use FL Studio to record and
+        produce songs.
       </p>
       <p className={`${currentTheme.text} mb-4`}>
         <strong>Most importantly</strong>, I have 2 four-legged creatures in my
         house. I have a Persian cat named Pancake (because her face is{" "}
-        <small>smushed</small>) and an English Cream golden retriever named
-        Charlie. Of course I have included pictures of them, because I like to
-        share.
+        <span className="text-xs">smushed</span>) and an English Cream golden
+        retriever named Charlie. Of course I have included pictures of them,
+        because I like to share.
       </p>
 
       <div className="w-full mt-6">
         <Carousel images={images} altPrefix="About image" />
       </div>
+      <p className={`${currentTheme.text} mt-2 text-xs`}>
+        Note: The above images were converted to WebP format, ensuring my
+        beloved pet pictures were compressed using superior lossless tech,
+        resulting in smaller file sizes, faster loading times, and better
+        quality images. Panny and Charlie thank you for your time.
+      </p>
     </>
   );
 };

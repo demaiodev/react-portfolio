@@ -12,7 +12,7 @@ const Resume: React.FC<{ textColor?: string }> = ({ textColor }) => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start h-full py-20">
+    <div className="flex flex-col items-start justify-start h-full">
       <h1
         className="text-4xl font-extrabold mb-8 transition-colors flex items-center w-full"
         style={{ color: textColor }}

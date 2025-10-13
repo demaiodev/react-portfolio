@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
@@ -11,7 +11,31 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
       >
         Hi, I'm <span style={{ color: "var(--accent-600)" }}>Chris.</span>
       </h1>
-      <p className={`text-2xl mb-8`}>Full Stack Web Developer</p>
+      <p className={`text-2xl mb-4`}>Full Stack Web Developer</p>
+      <div className="flex mb-4 justify-center items-center">
+        <div
+          className=" mx-1 p-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none"
+          style={{
+            color: "var(--accent-100)",
+            backgroundColor: "var(--accent-600)",
+          }}
+        >
+          <Link to="https://www.linkedin.com/in/christopher-demaio/">
+            <Linkedin size={30} />
+          </Link>
+        </div>
+        <div
+          className=" mx-1 p-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none"
+          style={{
+            color: "var(--accent-100)",
+            backgroundColor: "var(--accent-600)",
+          }}
+        >
+          <Link to="https://github.com/demaiodev">
+            <Github size={30} />
+          </Link>
+        </div>
+      </div>
       <p className={`text-md mb-8`}>
         I've been creating web applications and software using JavaScript,
         TypeScript and Node.js for 8 years.

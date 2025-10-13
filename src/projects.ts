@@ -3,7 +3,7 @@ export default [
     id: 1,
     title: "React Gadgets",
     description:
-      "Collection of components I wrote to practice developing React applications using Vite, Typescript and TailwindCSS.",
+      "Collection of components I wrote to practice developing React applications using Vite, Typescript and TailwindCSS. Hosted on Netlify.",
     url: "https://react-gadgets.netlify.app",
     github: "https://github.com/demaiodev/react-gadgets",
   },
@@ -11,7 +11,7 @@ export default [
     id: 2,
     title: "Knucklebuck",
     description:
-      "Reproduction of a dice mini-game from 'Cult of the Lamb', written in React with Typescript.",
+      "Reproduction of a dice game, written in React with Typescript and Vite (originally written with Svelte). Hosted on Netlify.",
     url: "https://knucklebuck.netlify.app",
     github: "https://github.com/demaiodev/knucklebuck_2",
   },
@@ -19,7 +19,7 @@ export default [
     id: 3,
     title: "Dorya",
     description:
-      "Tool I wrote with Next.js to practice Tekken's 'Electric Wind God Fist' using the Gamepad Web API.",
+      "Tool I wrote with Next.js to practice Tekken's 'Electric Wind God Fist' using the Gamepad Web API. Hosted on Netlify.",
     url: "https://dorya.netlify.app",
     github: "https://github.com/demaiodev/dorya",
   },

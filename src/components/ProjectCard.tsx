@@ -17,6 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       className={`p-6 border rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl`}
+      style={{ borderColor: "var(--accent-500)" }}
     >
       <h3
         className="text-2xl font-semibold mb-2"
@@ -35,7 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ color: "var(--accent-500)" }}
           >
             <LinkIcon className="w-4 h-4" />
-            <span>Live Site</span>
+            <span>Visit</span>
           </a>
         )}
 
