@@ -20,7 +20,10 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
             backgroundColor: "var(--accent-600)",
           }}
         >
-          <Link to="https://www.linkedin.com/in/christopher-demaio/">
+          <Link
+            to="https://www.linkedin.com/in/christopher-demaio/"
+            target="_blank"
+          >
             <Linkedin size={30} />
           </Link>
         </div>
@@ -31,7 +34,7 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
             backgroundColor: "var(--accent-600)",
           }}
         >
-          <Link to="https://github.com/demaiodev">
+          <Link to="https://github.com/demaiodev" target="_blank">
             <Github size={30} />
           </Link>
         </div>
