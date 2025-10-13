@@ -5,20 +5,14 @@ import { themes } from "../themes";
 import type { ThemeId } from "../themes";
 
 const ThemeSelector: React.FC = () => {
-  const { themeId, currentTheme, setThemeId } = useTheme();
+  const { themeId, setThemeId } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
-  const isLightTheme =
-    currentTheme.navBg.includes("white") ||
-    currentTheme.navBg.includes("gray-100");
-
-  const buttonStyle: React.CSSProperties = isLightTheme
-    ? { backgroundColor: undefined, color: "var(--accent-600)" }
-    : {
-        backgroundColor: "var(--accent-600)",
-        color: "var(--accent-contrast-text)",
-        boxShadow: `0 0 0 3px var(--accent-100-rgba)`,
-      };
+  const buttonStyle: React.CSSProperties = {
+    backgroundColor: "var(--accent-600)",
+    color: "var(--accent-contrast-text)",
+    boxShadow: `0 0 0 3px var(--accent-100-rgba)`,
+  };
 
   return (
     <div className="relative">
