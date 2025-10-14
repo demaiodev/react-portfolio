@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div
-      className={`p-6 border rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl`}
+      className={`p-4 border rounded-xl shadow-lg transition-all duration-300 cursor-default`}
       style={{
         borderColor: "var(--accent-500)",
         backgroundColor: "var(--nav-bg)",
@@ -34,6 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {tech.map((t) => {
           return (
             <span
+              key={t}
               className="text-xs mr-2 rounded-xl p-1 px-2"
               style={{
                 color: "var(--accent-100)",
@@ -53,10 +54,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center space-x-1 hover:underline text-sm font-medium transition-colors`}
-            style={{ color: "var(--accent-500)" }}
+            className={`flex items-center space-x-1 hover:scale-110 text-sm font-medium underline`}
+            style={{ color: "var(--accent-600)" }}
           >
-            <LinkIcon className="w-4 h-4" />
+            <LinkIcon className="w-5 h-5" />
             <span>Visit</span>
           </a>
         )}
@@ -65,10 +66,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center space-x-1 hover:underline text-sm font-medium transition-colors`}
-          style={{ color: "var(--accent-500)" }}
+          className={`flex items-center space-x-1 hover:scale-110 text-sm font-medium underline`}
+          style={{ color: "var(--accent-600)" }}
         >
-          <Github className="w-4 h-4" />
+          <Github className="w-5 h-5" />
           <span>GitHub</span>
         </a>
       </div>
