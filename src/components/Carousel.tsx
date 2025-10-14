@@ -89,7 +89,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, altPrefix = "Image" }) => {
       </button>
 
       {/* Indicators */}
-      <div className="hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 md:flex space-x-2">
+      <div className="hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 lg:flex space-x-2">
         {images.map((_, index) => (
           <button
             key={index}
