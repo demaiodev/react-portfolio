@@ -63,9 +63,9 @@ const AboutSection: React.FC = () => {
         I'm 34 and I live in Sarasota, Florida. I have been writing JavaScript
         for close to ten years now, and eight of them were in a professional
         capacity. When I'm not programming, I'm probably playing video games on
-        Steam. I enjoy playing and creating music - I like to pretend I can play
-        the guitar, and I can also play the piano. I use FL Studio to record and
-        produce songs.
+        Steam. I also enjoy playing and creating music - I like to pretend I can
+        play the guitar, and I can also play the piano. I use FL Studio to
+        record and produce songs.
       </p>
       <p className={`${currentTheme.text} mb-4`}>
         <strong>Most importantly</strong>, I have 2 four-legged creatures in my
@@ -80,7 +80,7 @@ const AboutSection: React.FC = () => {
       </div>
       <p className={`${currentTheme.text} mt-2 text-xs`}>
         Note: The above images were converted to WebP format, ensuring my
-        beloved pet pictures were compressed using superior lossless tech,
+        beloved pet pictures were compressed using superior lossless tech -
         resulting in smaller file sizes, faster loading times, and better
         quality images. Panny and Charlie thank you for your time.
       </p>

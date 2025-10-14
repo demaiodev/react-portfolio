@@ -11,10 +11,10 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
       >
         Hi, I'm <span style={{ color: "var(--accent-600)" }}>Chris.</span>
       </h1>
-      <p className={`text-2xl mb-4`}>Full Stack Web Developer</p>
+      <p className={`text-2xl mb-4`}>Full-Stack Engineer & Web Developer.</p>
       <div className="flex mb-4 justify-center items-center">
         <div
-          className=" mx-1 p-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none"
+          className=" mx-1 p-3 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none"
           style={{
             color: "var(--accent-100)",
             backgroundColor: "var(--accent-600)",
@@ -24,22 +24,22 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
             to="https://www.linkedin.com/in/christopher-demaio/"
             target="_blank"
           >
-            <Linkedin size={30} />
+            <Linkedin size={35} />
           </Link>
         </div>
         <div
-          className=" mx-1 p-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none"
+          className=" mx-1 p-3 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none"
           style={{
             color: "var(--accent-100)",
             backgroundColor: "var(--accent-600)",
           }}
         >
           <Link to="https://github.com/demaiodev" target="_blank">
-            <Github size={30} />
+            <Github size={35} />
           </Link>
         </div>
       </div>
-      <p className={`text-md mb-8`}>
+      <p className={`text-md mb-16`}>
         I've been creating web applications and software using JavaScript,
         TypeScript and Node.js for 8 years.
       </p>
@@ -69,7 +69,7 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
           group-hover:bg-gray-700 flex items-center space-x-2 shadow-lg 
         "
           >
-            <span>Recent Work</span>
+            <span>Recent Works</span>
             <ArrowRight />
           </button>
         </div>
