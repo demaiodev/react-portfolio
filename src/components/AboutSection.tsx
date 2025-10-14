@@ -93,9 +93,10 @@ const AboutSection: React.FC = () => {
             }}
           >
             I enjoy playing and creating music - I like to pretend I can play
-            the guitar, and I can actually play the piano. Don't ask me to
-            perform for you because I get performance anxiety. I use FL Studio
-            to record and produce songs.
+            the guitar, and I can actually play the piano. I also have a pretty
+            sweet Roland electronic drumset. Don't ask me to perform for you
+            because I get performance anxiety. I use FL Studio to record and
+            produce songs.
           </section>
           <section
             className={`${currentTheme.text} p-4 rounded-2xl m-4 border-2 text-sm`}
