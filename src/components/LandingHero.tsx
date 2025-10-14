@@ -40,8 +40,23 @@ const LandingHero: React.FC<{ textColor?: string }> = ({ textColor }) => {
         </div>
       </div>
       <p className={`text-md mb-16`}>
-        I've been creating web applications and software using JavaScript,
-        TypeScript and Node.js for 8 years.
+        I've been creating web applications and software using{" "}
+        <span className="font-bold" style={{ color: "var(--accent-600)" }}>
+          JavaScript
+        </span>
+        ,{" "}
+        <span className="font-bold" style={{ color: "var(--accent-600)" }}>
+          TypeScript
+        </span>
+        , and{" "}
+        <span className="font-bold" style={{ color: "var(--accent-600)" }}>
+          Node.js
+        </span>{" "}
+        for{" "}
+        <span className="font-bold" style={{ color: "var(--accent-600)" }}>
+          8 years
+        </span>
+        .
       </p>
       <Link to="/projects">
         <div
