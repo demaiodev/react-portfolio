@@ -59,31 +59,80 @@ const AboutSection: React.FC = () => {
       <h2 className={`text-4xl font-bold mb-8 ${currentTheme.text}`}>
         About Me
       </h2>
-      <p className={`${currentTheme.text} mb-4`}>
-        I'm 34 and I live in Sarasota, Florida. I have been writing JavaScript
-        for close to ten years now, and eight of them were in a professional
-        capacity. When I'm not programming, I'm probably playing video games on
-        Steam. I also enjoy playing and creating music - I like to pretend I can
-        play the guitar, and I can also play the piano. I use FL Studio to
-        record and produce songs.
-      </p>
-      <p className={`${currentTheme.text} mb-4`}>
-        <strong>Most importantly</strong>, I have 2 four-legged creatures in my
-        house. I have a Persian cat named Pancake (because her face is{" "}
-        <span className="text-xs">smushed</span>) and an English Cream golden
-        retriever named Charlie. Of course I have included pictures of them,
-        because I like to share.
-      </p>
+      <article className="mb-4">
+        <div className="md:flex">
+          <section
+            className={`${currentTheme.text} p-4 rounded-2xl m-4 border-2 text-sm`}
+            style={{
+              borderColor: "var(--accent-500)",
+              backgroundColor: "var(--nav-bg)",
+            }}
+          >
+            I'm 34 and I live in Sarasota, Florida. I have been writing
+            JavaScript for close to ten years now, eight of them in a
+            professional capacity.
+          </section>
+          <section
+            className={`${currentTheme.text} p-4 rounded-2xl m-4 border-2 text-sm`}
+            style={{
+              borderColor: "var(--accent-500)",
+              backgroundColor: "var(--nav-bg)",
+            }}
+          >
+            When I'm not programming, I'm probably playing video games on Steam.
+            I really like Tekken at the moment. I'm planning on emulating
+            GameCube games like Pikmin 1 and Mario Sunshine in the near future.
+          </section>
+        </div>
+        <div className="md:flex">
+          <section
+            className={`${currentTheme.text} p-4 rounded-2xl m-4 border-2 text-sm`}
+            style={{
+              borderColor: "var(--accent-500)",
+              backgroundColor: "var(--nav-bg)",
+            }}
+          >
+            I enjoy playing and creating music - I like to pretend I can play
+            the guitar, and I can actually play the piano. Don't ask me to
+            perform for you because I get performance anxiety. I use FL Studio
+            to record and produce songs.
+          </section>
+          <section
+            className={`${currentTheme.text} p-4 rounded-2xl m-4 border-2 text-sm`}
+            style={{
+              borderColor: "var(--accent-500)",
+              backgroundColor: "var(--nav-bg)",
+            }}
+          >
+            I'm in the process of teaching myself to sit still and enjoy reading
+            books, right now I am tackling the Hyperion series by Dan Simmons.
+          </section>
+        </div>
+        <section
+          className={`${currentTheme.text} p-4 rounded-2xl m-4 border-2 text-sm`}
+          style={{
+            borderColor: "var(--accent-500)",
+            backgroundColor: "var(--nav-bg)",
+          }}
+        >
+          <strong>Most importantly</strong>, I have 2 four-legged creatures
+          living in my house. One Persian cat named Pancake (because her face is{" "}
+          <span className="text-xs">smushed</span>) and one English Cream Golden
+          Retriever (E.C.G.R. for short) named Charlie. Of course I have
+          included pictures of them, because I like to share. Please enjoy the
+          slideshow I've prepared.
+        </section>
+      </article>
 
       <div className="w-full mt-6">
         <Carousel images={images} altPrefix="About image" />
+        <div className={`${currentTheme.text} mt-2 text-xs text-center p-2`}>
+          Note: The above images were converted to WebP format, ensuring my
+          beloved pet pictures were compressed using advanced lossless
+          technology - resulting in smaller file sizes, faster loading times,
+          and better quality images. Panny and Charlie thank you for your time.
+        </div>
       </div>
-      <p className={`${currentTheme.text} mt-2 text-xs`}>
-        Note: The above images were converted to WebP format, ensuring my
-        beloved pet pictures were compressed using superior lossless tech -
-        resulting in smaller file sizes, faster loading times, and better
-        quality images. Panny and Charlie thank you for your time.
-      </p>
     </>
   );
 };
