@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
 interface CarouselProps {
   images: string[];
@@ -74,21 +75,21 @@ const Carousel: React.FC<CarouselProps> = ({ images, altPrefix = "Image" }) => {
       {/* Navigation Buttons */}
       <button
         onClick={prev}
-        className="absolute left-3 top-1/2 transform -translate-y-1/2 p-3 bg-black bg-opacity-40 hover:bg-opacity-60 text-white rounded-full transition-all"
+        className="absolute left-1 md:left-10 top-1/2 transform -translate-y-1/2 p-3 bg-white/25 text-white rounded-full transition-all z-10"
         aria-label="Previous image"
       >
-        {"<"}
+        <ArrowLeft />
       </button>
       <button
         onClick={next}
-        className="absolute right-3 top-1/2 transform -translate-y-1/2 p-3 bg-black bg-opacity-40 hover:bg-opacity-60 text-white rounded-full transition-all"
+        className="absolute right-1 md:right-10 top-1/2 transform -translate-y-1/2 p-3 bg-white/25 text-white rounded-full transition-all z-10"
         aria-label="Next image"
       >
-        {">"}
+        <ArrowRight />
       </button>
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 md:flex space-x-2">
         {images.map((_, index) => (
           <button
             key={index}
