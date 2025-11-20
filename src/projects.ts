@@ -1,6 +1,15 @@
+function genId() {
+  let id = 1;
+  return function () {
+    return id++;
+  };
+}
+
+const idGenerator = genId();
+
 export default [
   {
-    id: 1,
+    id: idGenerator(),
     title: "React Gadgets",
     tech: ["React", "Vite", "TypeScript", "Tailwind"],
     description:
@@ -9,7 +18,7 @@ export default [
     github: "https://github.com/demaiodev/react-gadgets",
   },
   {
-    id: 2,
+    id: idGenerator(),
     title: "Knucklebuck",
     tech: ["React", "Vite", "TypeScript", "Tailwind"],
     description:
@@ -18,7 +27,16 @@ export default [
     github: "https://github.com/demaiodev/knucklebuck_2",
   },
   {
-    id: 3,
+    id: idGenerator(),
+    title: "O'Reilly Mock UI",
+    tech: ["React", "Vite", "TypeScript", "Cypress"],
+    description:
+      "A small recreation of the O'Reilly website's UI, using React, Vite, and TypeScript. Includes routing and basic Cypress tests.",
+    url: "",
+    github: "https://github.com/demaiodev/orm-view",
+  },
+  {
+    id: idGenerator(),
     title: "Movie Reviews",
     tech: ["React", "Vite", "TypeScript", "Supabase"],
     description:
@@ -27,7 +45,7 @@ export default [
     github: "https://github.com/demaiodev/movie-list_vite-ts",
   },
   {
-    id: 4,
+    id: idGenerator(),
     title: "PyBot",
     tech: ["Python", "Disnake", "VPS", "Vultr"],
     description:
@@ -36,7 +54,7 @@ export default [
     github: "https://github.com/demaiodev/pybot",
   },
   {
-    id: 5,
+    id: idGenerator(),
     title: "tinyWatch",
     tech: ["Node.js", "VPS", "Vultr"],
     description:
@@ -45,7 +63,7 @@ export default [
     github: "https://github.com/demaiodev/tinyWatch",
   },
   {
-    id: 6,
+    id: idGenerator(),
     title: "Dorya",
     tech: ["Next.js", "TypeScript", "Tailwind"],
     description:
@@ -54,7 +72,7 @@ export default [
     github: "https://github.com/demaiodev/dorya",
   },
   {
-    id: 7,
+    id: idGenerator(),
     title: "Hintify",
     tech: ["JavaScript"],
     description:
@@ -64,7 +82,7 @@ export default [
   },
 
   {
-    id: 8,
+    id: idGenerator(),
     title: "CookieClickerClass",
     tech: ["JavaScript"],
     description:
